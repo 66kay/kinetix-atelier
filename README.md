@@ -2,6 +2,8 @@
 
 Tienda online y catálogo editorial de calzado técnico, running y streetwear de alto rendimiento adaptada al mercado chileno (CLP).
 
+**🔗 Demo en Vivo (GitHub Pages):** [https://66kay.github.io/kinetix-atelier/](https://66kay.github.io/kinetix-atelier/)
+
 ![Vista Previa](https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&auto=format&fit=crop&q=85)
 
 ## ✨ Características Principales
