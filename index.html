@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINETIX ATELIER // Calzado Técnico & Lifestyle</title>
+    <meta name="description" content="Calzado de alto rendimiento para running, trail y uso diario. Diseñado con placas de carbono, espumas de doble compuesto y materiales técnicos de primera calidad.">
+
+    <!-- Tipografía Editorial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS del Sistema de Diseño -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Barra de Anuncios Superior -->
+    <div class="top-announcement">
+        Envíos express gratis en compras sobre $90.000 a todo Chile • <span>30 días de prueba sin compromiso</span>
+    </div>
+
+    <!-- Contenedor de Alertas Toast Discretas -->
+    <div class="toast-stack" id="toastContainer"></div>
+
+    <!-- ==========================================================================
+         CABECERA / NAVEGACIÓN
+         ========================================================================== -->
+    <header class="site-header">
+        <div class="container nav-row">
+            <a href="#" class="brand-logo" aria-label="KINETIX Inicio">
+                KINETIX<span class="dot"></span>ATELIER
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#catalog" class="nav-link active">Colección FW26</a></li>
+                    <li><a href="#catalog" class="nav-link" onclick="document.querySelector('[data-category=running]').click()">Running</a></li>
+                    <li><a href="#catalog" class="nav-link" onclick="document.querySelector('[data-category=trail]').click()">Trail & Outdoor</a></li>
+                    <li><a href="#catalog" class="nav-link" onclick="document.querySelector('[data-category=lifestyle]').click()">Lifestyle</a></li>
+                    <li><a href="#lookbook" class="nav-link">Lookbook</a></li>
+                    <li><a href="#faq" class="nav-link">Guía & Ayuda</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Lista de Deseos (Favoritos) -->
+                <button class="btn-icon" id="wishlistHeaderBtn" title="Mis Favoritos" aria-label="Ver favoritos">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="badge-count" id="wishlistCountBadge">0</span>
+                </button>
+
+                <!-- Bolsa de Compra (Carrito) -->
+                <button class="btn-icon" id="openBagBtn" title="Bolsa de compra" aria-label="Abrir bolsa de compra">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="badge-count" id="bagCountBadge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==========================================================================
+             HERO SECTION EDITORIAL
+             ========================================================================== -->
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <div class="hero-tagline">
+                        <span>●</span> NUEVA COLECCIÓN FW26 DISPONIBLE
+                    </div>
+
+                    <h1 class="hero-title">
+                        PRECISIÓN EN <br>
+                        CADA ZANCADA.
+                    </h1>
+
+                    <p class="hero-desc">
+                        Siluetas de alto rendimiento donde la ingeniería deportiva se encuentra con la estética minimalista. Diseñadas para devorar kilómetros en asfalto, montaña o asfalto urbano.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#catalog" class="btn btn-primary">
+                            Explorar Colección
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <a href="#lookbook" class="btn btn-secondary">
+                            Ver Lookbook
+                        </a>
+                    </div>
+
+                    <div class="hero-features">
+                        <div class="hero-feature-item">
+                            <h4>30 Días de Prueba</h4>
+                            <p>En interiores sin compromiso</p>
+                        </div>
+                        <div class="hero-feature-item">
+                            <h4>Envíos en 24/48h</h4>
+                            <p>Despacho express asegurado</p>
+                        </div>
+                        <div class="hero-feature-item">
+                            <h4>Materiales Sostenibles</h4>
+                            <p>Polímeros 100% reciclados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Showcase Visual del Hero con Fotografías Coherentes -->
+                <div class="hero-visual">
+                    <div class="hero-shoe-box">
+                        <img id="heroShoeImg" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&auto=format&fit=crop&q=85" alt="Apex Carbon Veloce">
+                    </div>
+
+                    <div class="hero-switcher-bar">
+                        <div class="hero-model-info">
+                            <div id="heroModelName">Apex Carbon Veloce</div>
+                            <span id="heroModelPrice">Zapatilla de competición en asfalto • $179.990</span>
+                        </div>
+
+                        <div class="hero-model-dots">
+                            <div class="model-dot active" style="background-color: #dc2626;" title="Apex Carbon Veloce"></div>
+                            <div class="model-dot" style="background-color: #1e293b;" title="Monolith Technical Low"></div>
+                            <div class="model-dot" style="background-color: #f8fafc;" title="Strata Court High"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             BARRA DE CONFIANZA / BENEFICIOS REALES EN CHILE
+             ========================================================================== -->
+        <section class="trust-strip">
+            <div class="container trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="3" width="15" height="13"></rect>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                        </svg>
+                    </div>
+                    <div class="trust-text">
+                        <h5>Envío Express Gratuito</h5>
+                        <p>En compras sobre $90.000 a todo Chile</p>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div class="trust-text">
+                        <h5>Cambios Fáciles en Chile</h5>
+                        <p>30 días con retiro a domicilio o sucursal</p>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 14 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="trust-text">
+                        <h5>Entrega en 24-48h</h5>
+                        <p>Chilexpress, Starken y Blue Express</p>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <div class="trust-text">
+                        <h5>Webpay Plus & Cuotas</h5>
+                        <p>Hasta 3 y 6 cuotas sin interés</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             CATÁLOGO DE PRODUCTOS
+             ========================================================================== -->
+        <section class="catalog-section" id="catalog">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-eyebrow">Catálogo Completo</span>
+                    <h2 class="section-title">CALZADO TÉCNICO Y LIFESTYLE</h2>
+                    <p style="color: var(--text-secondary); max-width: 600px; font-size: 0.95rem;">
+                        Pasa el cursor sobre cualquier silueta para ver los detalles del perfil y la suela. Selecciona tu modelo para conocer los materiales exactos.
+                    </p>
+                </div>
+
+                <!-- Barra de Filtros y Búsqueda -->
+                <div class="catalog-toolbar">
+                    <div class="filter-categories">
+                        <button class="cat-btn active" data-category="all">Todos los Modelos (8)</button>
+                        <button class="cat-btn" data-category="running">Running (3)</button>
+                        <button class="cat-btn" data-category="trail">Trail & Outdoor (2)</button>
+                        <button class="cat-btn" data-category="lifestyle">Lifestyle (2)</button>
+                        <button class="cat-btn" data-category="hightop">High-Top (1)</button>
+                    </div>
+
+                    <div class="toolbar-right">
+                        <div class="search-field">
+                            <svg class="search-icon-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input type="text" id="searchInput" class="search-input" placeholder="Buscar por modelo o color...">
+                        </div>
+
+                        <select id="sortSelect" class="select-sort" aria-label="Ordenar productos">
+                            <option value="default">Recomendados</option>
+                            <option value="price-low">Precio: Menor a Mayor</option>
+                            <option value="price-high">Precio: Mayor a Menor</option>
+                            <option value="rating">Mejor Calificación</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Cuadrícula de Productos -->
+                <div class="products-grid" id="productsContainer">
+                    <!-- Inyección dinámica vía JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             EDITORIAL / LOOKBOOK ENTORNO REAL
+             ========================================================================== -->
+        <section class="editorial-section" id="lookbook">
+            <div class="container editorial-grid">
+                <div>
+                    <span class="badge-tag dark" style="margin-bottom: 1rem;">EDITORIAL FW26</span>
+                    <h2 style="font-size: clamp(2rem, 3.5vw, 3rem); margin: 0.8rem 0;">
+                        DISEÑADO PARA LA CIUDAD, <br>
+                        PROBADO EN LA MONTAÑA.
+                    </h2>
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 2rem;">
+                        No creemos en la separación entre calzado puramente deportivo y calzado de diario. Nuestras zapatillas combinan el rendimiento biomecánico necesario para un entrenamiento de alta exigencia con una estética pulida y limpia que encaja en cualquier entorno profesional o social.
+                    </p>
+                    <a href="#catalog" class="btn btn-white">
+                        Descubrir Siluetas
+                    </a>
+                </div>
+
+                <div class="editorial-image-collage">
+                    <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=1200&auto=format&fit=crop&q=85" alt="Lookbook Kinetix en uso real">
+                    <div class="editorial-tag">
+                        <h4>Atelier Running Club</h4>
+                        <p>Sesión de prueba en asfalto urbano y senderos costeros</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             OPINIONES REALES DE CLIENTES
+             ========================================================================== -->
+        <section class="reviews-section">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-eyebrow">Experiencias Verificadas</span>
+                    <h2 class="section-title">LO QUE OPINAN NUESTROS CORREDORES</h2>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-box">
+                        <div>
+                            <div class="review-author-row">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Marcos Varela" class="review-avatar-img">
+                                <div>
+                                    <h4 style="font-size: 0.95rem;">Marcos Varela</h4>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Santiago, Chile • Maratonista amateur</p>
+                                </div>
+                            </div>
+                            <div class="review-stars-gold">★★★★★</div>
+                            <p class="review-quote">
+                                "Compré las Apex Carbon Veloce para preparar mi segunda media maratón. Llevo más de 200 km acumulados con ellas y la respuesta de la placa de carbono en ritmos de 4:10 min/km es suave y constante. El ajuste del upper es impecable."
+                            </p>
+                        </div>
+                        <div class="review-product-tag">Modelo: Apex Carbon Veloce</div>
+                    </div>
+
+                    <div class="review-box">
+                        <div>
+                            <div class="review-author-row">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Carolina Silva" class="review-avatar-img">
+                                <div>
+                                    <h4 style="font-size: 0.95rem;">Carolina Silva</h4>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Buenos Aires, Argentina • Diseñadora</p>
+                                </div>
+                            </div>
+                            <div class="review-stars-gold">★★★★★</div>
+                            <p class="review-quote">
+                                "Las Atelier Minimalist son exactamente lo que necesitaba: piel de verdad, acabados limpios sin logotipos gigantes y una comodidad bárbara para estar caminando todo el día entre reuniones y visitas a obra. Llegaron en 48 horas."
+                            </p>
+                        </div>
+                        <div class="review-product-tag">Modelo: Atelier Minimalist Low</div>
+                    </div>
+
+                    <div class="review-box">
+                        <div>
+                            <div class="review-author-row">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" alt="Diego Morales" class="review-avatar-img">
+                                <div>
+                                    <h4 style="font-size: 0.95rem;">Diego Morales</h4>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Madrid, España • Entrenador físico</p>
+                                </div>
+                            </div>
+                            <div class="review-stars-gold">★★★★★</div>
+                            <p class="review-quote">
+                                "El agarre de la suela de las Monolith en senderos de tierra y roca mojada me impresionó gratamente. Además el color negro total combina con cualquier prenda técnica. La talla 43 fue totalmente fiel a mi número usual."
+                            </p>
+                        </div>
+                        <div class="review-product-tag">Modelo: Monolith Technical Low</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             PREGUNTAS FRECUENTES (FAQ)
+             ========================================================================== -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-head" style="text-align: center; align-items: center;">
+                    <span class="section-eyebrow">Dudas Habituales</span>
+                    <h2 class="section-title">PREGUNTAS FRECUENTES</h2>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-card open">
+                        <div class="faq-trigger">
+                            <span>¿Cómo acierto exactamente con mi talla?</span>
+                            <span class="faq-arrow">▼</span>
+                        </div>
+                        <div class="faq-content">
+                            Nuestro calzado sigue el tallaje europeo estándar (True to Size). Te sugerimos elegir el mismo número que utilizas habitualmente en tus zapatillas deportivas de marcas reconocidas. Si tienes el pie especialmente ancho o prefieres un ajuste más holgado para distancias largas, recomendamos pedir media talla más.
+                        </div>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-trigger">
+                            <span>¿Cuánto tardan los envíos y cuánto cuestan?</span>
+                            <span class="faq-arrow">▼</span>
+                        </div>
+                        <div class="faq-content">
+                            Los pedidos superiores a $120 disfrutan de envío express prioritario gratuito. Para pedidos inferiores, el coste fijo de envío es de $6.90. El plazo estimado de entrega es de 24 a 48 horas laborables en territorio peninsular y de 3 a 5 días hábiles para envíos internacionales con número de seguimiento vía DHL o FedEx.
+                        </div>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-trigger">
+                            <span>¿Cómo funcionan las devoluciones y los cambios de talla?</span>
+                            <span class="faq-arrow">▼</span>
+                        </div>
+                        <div class="faq-content">
+                            Cuentas con 30 días naturales desde el momento en que recibes tu paquete para solicitar cualquier cambio de talla o reembolso completo. El calzado debe probarse únicamente en interiores y conservarse en su caja original. El primer cambio de talla es 100% gratuito.
+                        </div>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-trigger">
+                            <span>¿Cómo debo limpiar y cuidar el calzado técnico?</span>
+                            <span class="faq-arrow">▼</span>
+                        </div>
+                        <div class="faq-content">
+                            Aconsejamos retirar el polvo y barro seco con un cepillo suave de cerdas naturales, limpiando posteriormente la superficie con un paño húmedo y jabón neutro. Para preservar la integridad de las espumas técnicas y las placas de carbono, nunca introduzcas el calzado en lavadora ni utilices secadora.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================================
+         PIE DE PÁGINA (FOOTER)
+         ========================================================================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top-grid">
+                <div class="footer-col">
+                    <div class="brand-logo" style="margin-bottom: 1rem;">
+                        KINETIX<span class="dot"></span>ATELIER
+                    </div>
+                    <p style="font-size: 0.88rem; color: var(--text-secondary); max-width: 320px; line-height: 1.6;">
+                        Estudio independiente de diseño de calzado deportivo y urbano. Uniendo innovación material con líneas atemporales.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Colecciones</h5>
+                    <ul class="footer-links-list">
+                        <li><a href="#catalog">Running & Asfalto</a></li>
+                        <li><a href="#catalog">Trail & Outdoor</a></li>
+                        <li><a href="#catalog">Lifestyle Minimal</a></li>
+                        <li><a href="#catalog">High-Top Clásicos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Atención al Cliente</h5>
+                    <ul class="footer-links-list">
+                        <li><a href="#faq">Guía de Tallas</a></li>
+                        <li><a href="#faq">Envíos y Seguimiento</a></li>
+                        <li><a href="#faq">Cambios y Devoluciones</a></li>
+                        <li><a href="#faq">Cuidado de Calzado</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Club KINETIX</h5>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.8rem;">
+                        Suscríbete para recibir acceso anticipado a nuevas siluetas y un 10% de descuento en tu primera compra.
+                    </p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('¡Gracias por unirte! Usa el código BIENVENIDA10 en tu compra.'); this.reset();">
+                        <input type="email" class="newsletter-input" placeholder="tu@correo.com" required>
+                        <button type="submit" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.8rem;">
+                            Unirse
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                <div>© 2026 KINETIX ATELIER S.L. Todos los derechos reservados.</div>
+                <div style="display: flex; gap: 1.5rem;">
+                    <a href="#" style="color: var(--text-muted); text-decoration: none;">Aviso Legal</a>
+                    <a href="#" style="color: var(--text-muted); text-decoration: none;">Privacidad</a>
+                    <a href="#" style="color: var(--text-muted); text-decoration: none;">Condiciones de Compra</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         BOLSA DE COMPRA (SLIDE-OVER DRAWER)
+         ========================================================================== -->
+    <div class="bag-drawer-backdrop" id="bagBackdrop"></div>
+    <aside class="bag-drawer" id="bagDrawer" aria-label="Bolsa de compra">
+        <div class="bag-header">
+            <h3 style="font-size: 1.15rem; font-weight: 700;">Tu Bolsa de Compra</h3>
+            <button class="btn-icon" id="closeBagBtn" aria-label="Cerrar bolsa">✕</button>
+        </div>
+
+        <div class="free-ship-bar">
+            <div id="shipStatusMsg">Añade productos para obtener <b>Envío Express Gratis</b></div>
+            <div class="ship-progress-track">
+                <div class="ship-progress-fill" id="shipProgressFill"></div>
+            </div>
+        </div>
+
+        <div class="bag-items-list" id="bagItemsList">
+            <!-- Inyección dinámica -->
+        </div>
+
+        <div class="bag-footer">
+            <div class="coupon-row">
+                <input type="text" class="coupon-input" id="couponInput" placeholder="CÓDIGO (Ej: BIENVENIDA10)">
+                <button class="btn btn-secondary" id="applyCouponBtn" style="padding: 0.5rem 0.9rem; font-size: 0.8rem;">
+                    Aplicar
+                </button>
+            </div>
+
+            <div class="bag-row-calc">
+                <span>Subtotal</span>
+                <span id="bagSubtotal">$0</span>
+            </div>
+
+            <div class="bag-row-calc" style="color: #4ade80;">
+                <span>Descuento</span>
+                <span id="bagDiscount">-$0</span>
+            </div>
+
+            <div class="bag-row-total">
+                <span>Total Estimado</span>
+                <span id="bagTotal">$0</span>
+            </div>
+
+            <button class="btn btn-primary" id="checkoutStartBtn" style="width: 100%; margin-top: 0.5rem;">
+                Tramitar Pedido Seguro
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+    </aside>
+
+    <!-- ==========================================================================
+         MODAL DE VISTA RÁPIDA (QUICK VIEW)
+         ========================================================================== -->
+    <div class="modal-backdrop" id="quickViewModal">
+        <div class="modal-sheet">
+            <button class="modal-close-trigger" aria-label="Cerrar ventana">✕</button>
+            <div class="modal-layout-grid">
+                <div class="modal-gallery-box">
+                    <img id="modalMainPhoto" src="" alt="Vista de detalle" class="modal-hero-photo">
+                    <div class="modal-thumb-row" id="modalThumbsBox"></div>
+                </div>
+
+                <div>
+                    <span id="modalShoeSubtitle" style="font-size: 0.78rem; text-transform: uppercase; color: var(--accent); font-weight: 700; letter-spacing: 0.05em;"></span>
+                    <h2 id="modalShoeTitle" style="font-size: 1.6rem; margin: 0.5rem 0 0.3rem 0;"></h2>
+                    <div id="modalShoePrice" style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;"></div>
+
+                    <p id="modalShoeDesc" style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;"></p>
+
+                    <label style="font-size: 0.8rem; font-weight: 600; color: var(--text-primary); display: block; margin-bottom: 0.4rem;">
+                        SELECCIONA TU TALLA (EU):
+                    </label>
+                    <div class="size-grid-buttons" id="modalSizesBox"></div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <h5 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;">
+                            Ficha Técnica & Composición
+                        </h5>
+                        <div id="modalSpecsBox"></div>
+                    </div>
+
+                    <button class="btn btn-primary" id="modalAddBagBtn" style="width: 100%;">
+                        Añadir a la Bolsa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         MODAL DE CHECKOUT SIMULADO REALISTA
+         ========================================================================== -->
+    <div class="modal-backdrop" id="checkoutModal">
+        <div class="modal-sheet" style="max-width: 580px; padding: 2.5rem;">
+            <button class="modal-close-trigger" aria-label="Cerrar ventana">✕</button>
+
+            <form id="checkoutForm">
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.4rem;">Finalizar Pedido</h3>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                    Introduce tus datos de envío y facturación para completar tu compra.
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">NOMBRE Y APELLIDOS</label>
+                        <input type="text" required placeholder="Ej: Mateo González" style="width:100%; background:var(--bg-card); border:1px solid var(--border-subtle); color:#fff; padding:0.7rem 0.9rem; border-radius:var(--radius-sm); outline:none;">
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">CORREO ELECTRÓNICO</label>
+                            <input type="email" required placeholder="mateo@ejemplo.com" style="width:100%; background:var(--bg-card); border:1px solid var(--border-subtle); color:#fff; padding:0.7rem 0.9rem; border-radius:var(--radius-sm); outline:none;">
+                        </div>
+                        <div>
+                            <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">TELÉFONO DE CONTACTO</label>
+                            <input type="tel" required placeholder="+56 9 8765 4321" style="width:100%; background:var(--bg-card); border:1px solid var(--border-subtle); color:#fff; padding:0.7rem 0.9rem; border-radius:var(--radius-sm); outline:none;">
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">REGIÓN</label>
+                            <select required style="width:100%; background:var(--bg-card); border:1px solid var(--border-subtle); color:#fff; padding:0.7rem 0.9rem; border-radius:var(--radius-sm); outline:none;">
+                                <option value="RM">Región Metropolitana</option>
+                                <option value="V">V - Valparaíso</option>
+                                <option value="VIII">VIII - Biobío</option>
+                                <option value="IV">IV - Coquimbo</option>
+                                <option value="IX">IX - La Araucanía</option>
+                                <option value="OTRA">Otras Regiones de Chile</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">COMUNA / CIUDAD</label>
+                            <input type="text" required placeholder="Ej: Providencia, Las Condes, Viña..." style="width:100%; background:var(--bg-card); border:1px solid var(--border-subtle); color:#fff; padding:0.7rem 0.9rem; border-radius:var(--radius-sm); outline:none;">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">DIRECCIÓN DE ENTREGA (CHILE)</label>
+                        <input type="text" required placeholder="Calle, Número, Depto o Villa" style="width:100%; background:var(--bg-card); border:1px solid var(--border-subtle); color:#fff; padding:0.7rem 0.9rem; border-radius:var(--radius-sm); outline:none;">
+                    </div>
+
+                    <div>
+                        <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 0.4rem;">MÉTODO DE PAGO EN CHILE</label>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                            <label style="display:flex; align-items:center; gap:0.5rem; background:var(--bg-card); border:1px solid var(--border-strong); padding:0.75rem; border-radius:var(--radius-sm); font-size:0.82rem; cursor:pointer;">
+                                <input type="radio" name="payment" checked> Webpay Plus (Transbank)
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.5rem; background:var(--bg-card); border:1px solid var(--border-subtle); padding:0.75rem; border-radius:var(--radius-sm); font-size:0.82rem; cursor:pointer;">
+                                <input type="radio" name="payment"> Mercado Pago / MACH
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">
+                        Confirmar y Pagar Pedido
+                    </button>
+                </div>
+            </form>
+
+            <div id="checkoutSuccess" style="display: none; text-align: center; padding: 1.5rem 0;">
+                <div style="width: 56px; height: 56px; background: rgba(212,255,0,0.15); border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto; color: var(--accent);">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <h3 style="font-size: 1.7rem; margin-bottom: 0.5rem;">¡Pedido Confirmado!</h3>
+                <p style="color: var(--text-secondary); font-size: 0.92rem; max-width: 420px; margin: 0 auto 1.5rem auto;">
+                    Hemos recibido tu pedido correctamente. En breve recibirás un correo de confirmación con los detalles del envío y el código de seguimiento.
+                </p>
+                <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 0.85rem; border-radius: var(--radius-sm); font-size: 0.95rem; font-weight: 700; color: #ffffff; margin-bottom: 1.5rem;">
+                    N° DE PEDIDO: <span id="checkoutOrderNum" style="color: var(--accent);">KTX-748921</span>
+                </div>
+                <button class="btn btn-secondary" onclick="location.reload()">
+                    Volver a la tienda
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de la Aplicación -->
+    <script src="js/products.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
